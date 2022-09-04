@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">hitung BMI</string>
+    <string name="hasil">Hasil</string>
+    <string name="umur">Umur</string>
+    <string name="panah"><![CDATA[->]]></string>
+    <string name="hasil_umur">hasil umur</string>
+    <string name="tinggi_badan">Tinggi Badan</string>
+    <string name="hasil_tinggi_badan">hasil tinggi badan</string>
+    <string name="berat_badan">Berat Badan</string>
+    <string name="hasil_berat_badan">hasil berat badan</string>
+    <string name="bmi">BMI</string>
+    <string name="hasil_bmi">hasil BMI</string>
+    <string name="kategori">Kategori</string>
+    <string name="hasil_kategori">hasil kategori</string>
 </resources>

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.example.hitungbmi.dataClass.Person
+import com.example.hitungbmi.dataClass.PersonPar
 import com.example.hitungbmi.passingDataBmi.IntentActivity
 
 class MainActivity : AppCompatActivity() {
@@ -80,8 +81,9 @@ class MainActivity : AppCompatActivity() {
 
     fun buttonParcelableClick(){
         val intent = Intent(this, IntentActivity::class.java)
-        val data = Person("$etInputUmur", "$etInputTinggiBadan", "$etInputBeratBadan")
+        val data = PersonPar("$etInputUmur", "$etInputTinggiBadan", "$etInputBeratBadan")
 
-        
+        intent.putExtra("dataPersonPar", data)
+        startActivity(intent)
     }
 }
