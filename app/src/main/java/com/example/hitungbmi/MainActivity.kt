@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.hitungbmi.dataClass.Person
 import com.example.hitungbmi.dataClass.PersonPar
+import com.example.hitungbmi.keyIntent.KeyIntent
 import com.example.hitungbmi.passingDataBmi.IntentActivity
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +33,23 @@ class MainActivity : AppCompatActivity() {
         btnBundle = findViewById(R.id.btn_pass_bundle)
         btnSerializable = findViewById(R.id.btn_pass_serializable)
         btnParcelable = findViewById(R.id.btn_pass_parcelable)
+
+        btnIntent.setOnClickListener {
+
+            buttonIntentClick()
+        }
+        btnBundle.setOnClickListener {
+
+            buttonBundleClick()
+        }
+        btnSerializable.setOnClickListener {
+
+            buttonSerializableClick()
+        }
+        btnParcelable.setOnClickListener {
+
+            buttonParcelableClick()
+        }
 
         // action btn reset
         btnReset.setOnClickListener {
@@ -81,6 +99,7 @@ class MainActivity : AppCompatActivity() {
 
     fun buttonParcelableClick(){
         val intent = Intent(this, IntentActivity::class.java)
+
         val data = PersonPar("$etInputUmur", "$etInputTinggiBadan", "$etInputBeratBadan")
 
         intent.putExtra("dataPersonPar", data)

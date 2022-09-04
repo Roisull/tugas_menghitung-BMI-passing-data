@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.example.hitungbmi.R
+import com.example.hitungbmi.keyIntent.KeyIntent
 
 class IntentActivity : AppCompatActivity() {
     lateinit var tvHasilUmur: TextView
@@ -21,6 +22,7 @@ class IntentActivity : AppCompatActivity() {
         tvHasilBerat = findViewById(R.id.tv_hasil_berat_badan)
         tvHasilBmi = findViewById(R.id.tv_hasil_bmi)
         tvHasilKategori = findViewById(R.id.tv_hasil_kategori)
+
 
     }
 }
