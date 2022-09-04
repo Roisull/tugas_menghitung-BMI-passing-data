@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.hitungbmi.dataClass.Person
 import com.example.hitungbmi.dataClass.PersonPar
-import com.example.hitungbmi.keyIntent.KeyIntent
 import com.example.hitungbmi.passingDataBmi.IntentActivity
 
 class MainActivity : AppCompatActivity() {
@@ -35,20 +34,42 @@ class MainActivity : AppCompatActivity() {
         btnParcelable = findViewById(R.id.btn_pass_parcelable)
 
         btnIntent.setOnClickListener {
+            val intent = Intent(this, IntentActivity::class.java)
 
-            buttonIntentClick()
+            intent.putExtra("umur", etInputUmur.text.toString())
+            intent.putExtra("tinggi", etInputTinggiBadan.text.toString())
+            intent.putExtra("berat", etInputBeratBadan.text.toString())
+
+            startActivity(intent)
         }
         btnBundle.setOnClickListener {
+            val intent = Intent(this, IntentActivity::class.java)
 
-            buttonBundleClick()
+            val bundle = Bundle()
+
+            bundle.putString("umur",etInputUmur.text.toString())
+            bundle.putString("tinggi",etInputTinggiBadan.text.toString())
+            bundle.putString("berat",etInputTinggiBadan.text.toString())
+            intent.putExtras(bundle)
+
+            startActivity(intent)
         }
         btnSerializable.setOnClickListener {
+            val intent = Intent(this, IntentActivity::class.java)
 
-            buttonSerializableClick()
+            // make object from data class Person.kt
+            val person = Person("$etInputUmur", "${etInputTinggiBadan}", "$etInputBeratBadan")
+
+            intent.putExtra("AN_OBJECT",person)
+            startActivity(intent)
         }
         btnParcelable.setOnClickListener {
+            val intent = Intent(this, IntentActivity::class.java)
 
-            buttonParcelableClick()
+            val data = PersonPar("$etInputUmur", "$etInputTinggiBadan", "$etInputBeratBadan")
+
+            intent.putExtra("dataPersonPar", data)
+            startActivity(intent)
         }
 
         // action btn reset
@@ -58,51 +79,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     private fun resetBmi(){
         etInputUmur.text = null
         etInputTinggiBadan.text = null
         etInputBeratBadan.text = null
-    }
-
-    fun buttonIntentClick(){
-        val intent = Intent(this, IntentActivity::class.java)
-
-        intent.putExtra("umur", etInputUmur.text.toString())
-        intent.putExtra("tinggi", etInputTinggiBadan.text.toString())
-        intent.putExtra("berat", etInputBeratBadan.text.toString())
-
-        startActivity(intent)
-    }
-
-    fun buttonBundleClick(){
-        val intent = Intent(this, IntentActivity::class.java)
-
-        val bundle = Bundle()
-
-        bundle.putString("umur",etInputUmur.text.toString())
-        bundle.putString("tinggi",etInputTinggiBadan.text.toString())
-        bundle.putString("berat",etInputTinggiBadan.text.toString())
-        intent.putExtras(bundle)
-
-        startActivity(intent)
-    }
-
-    fun buttonSerializableClick(){
-        val intent = Intent(this, IntentActivity::class.java)
-
-        // make object from data class Person.kt
-        val person = Person("$etInputUmur", "${etInputTinggiBadan}", "$etInputBeratBadan")
-
-        intent.putExtra("AN_OBJECT",person)
-        startActivity(intent)
-    }
-
-    fun buttonParcelableClick(){
-        val intent = Intent(this, IntentActivity::class.java)
-
-        val data = PersonPar("$etInputUmur", "$etInputTinggiBadan", "$etInputBeratBadan")
-
-        intent.putExtra("dataPersonPar", data)
-        startActivity(intent)
     }
 }
